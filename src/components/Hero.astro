@@ -1,29 +1,40 @@
 ---
 import { profile } from '../data/profile';
 ---
-<section class="relative mx-auto flex max-w-5xl flex-col gap-10 overflow-hidden px-6 py-28 md:py-40" data-reveal>
+<section class="relative mx-auto flex max-w-5xl flex-col gap-10 overflow-hidden px-6 py-28 md:py-40">
   <div
-    class="pointer-events-none absolute -top-40 left-1/2 h-[440px] w-[440px] -translate-x-1/2 rounded-full bg-accent/25 blur-[140px]"
+    class="pointer-events-none absolute -top-40 h-[440px] w-[440px]"
+    style="left: 50%; margin-left: -220px;"
+    data-glow-wrapper
     aria-hidden="true"
   >
+    <div class="h-full w-full animate-float rounded-full bg-accent/25 blur-[140px] motion-reduce:animate-none"></div>
   </div>
   <div class="relative flex flex-col gap-6">
-    <span class="inline-flex w-fit items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 font-display text-xs uppercase tracking-widest text-muted">
+    <span
+      class="inline-flex w-fit items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 font-display text-xs uppercase tracking-widest text-muted"
+      data-hero-badge
+    >
       <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-accent motion-reduce:animate-none"></span>
       Disponible para nuevos proyectos
     </span>
-    <p class="font-display text-sm uppercase tracking-widest text-accent">
+    <p class="font-display text-sm uppercase tracking-widest text-accent" data-hero-eyebrow>
       {profile.role} · {profile.location}
     </p>
-    <h1 class="font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
+    <h1
+      class="font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl"
+      data-hero-title
+    >
       {profile.name}
     </h1>
-    <p class="max-w-2xl text-lg text-muted md:text-xl">{profile.headline}</p>
+    <p class="max-w-2xl text-lg text-muted md:text-xl" data-hero-sub>{profile.headline}</p>
   </div>
   <div class="relative flex flex-wrap gap-4">
     <a
       href="#trabajo"
       class="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-fg transition-colors hover:bg-accent/80"
+      data-hero-cta
+      data-magnetic
     >
       Ver trabajo
       <span class="transition-transform group-hover:translate-x-1">→</span>
@@ -31,16 +42,26 @@ import { profile } from '../data/profile';
     <a
       href="#contacto"
       class="rounded-full border border-line px-6 py-3 font-medium text-fg transition-colors hover:border-accent hover:text-accent"
+      data-hero-cta
+      data-magnetic
     >
       Contacto
     </a>
   </div>
   <dl class="relative grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-3">
     {profile.scoreboard.map((metric) => (
-      <div>
-        <dt class="font-display text-4xl font-semibold tracking-tight text-accent">{metric.value}</dt>
+      <div data-hero-stat>
+        <dt
+          class="font-display text-4xl font-semibold tracking-tight text-accent"
+          data-counter-text={metric.value}
+        >
+          {metric.value}
+        </dt>
         <dd class="mt-1 text-sm text-muted">{metric.label}</dd>
       </div>
     ))}
   </dl>
+  <div class="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center" aria-hidden="true">
+    <span class="animate-bounce-slow font-display text-muted motion-reduce:animate-none">↓</span>
+  </div>
 </section>
