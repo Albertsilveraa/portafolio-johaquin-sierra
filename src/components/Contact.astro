@@ -1,0 +1,15 @@
+---
+import { profile } from '../data/profile';
+---
+<section id="contacto" class="mx-auto max-w-5xl px-6 py-24">
+  <h2 class="font-display text-sm uppercase tracking-widest text-muted">Contacto</h2>
+  <div class="mt-8 flex flex-col gap-4 text-lg">
+    <a href={`mailto:${profile.contact.email}`} class="w-fit hover:text-accent">
+      {profile.contact.email}
+    </a>
+    <a href={`tel:${profile.contact.phone.replace(/\s/g, '')}`} class="w-fit hover:text-accent">
+      {profile.contact.phone}
+    </a>
+    <a href={profile.contact.linkedin} class="w-fit hover:text-accent">LinkedIn</a>
+  </div>
+</section>

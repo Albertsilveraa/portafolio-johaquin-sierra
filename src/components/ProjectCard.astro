@@ -1,0 +1,40 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+<article class="group flex flex-col gap-4 border border-line bg-surface p-6">
+  <div class="flex items-center justify-between font-display text-xs uppercase tracking-widest text-muted">
+    <span>{project.code}</span>
+    <span>{project.year}</span>
+  </div>
+  <img
+    src={project.coverImage}
+    alt={`Portada de ${project.title}`}
+    class="aspect-[4/3] w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+    loading="lazy"
+  />
+  <h3 class="font-display text-xl font-semibold">{project.title}</h3>
+  <p class="text-sm text-muted">{project.summary}</p>
+  <p class="font-display text-sm font-medium text-accent">{project.metric}</p>
+  <ul class="flex flex-wrap gap-2">
+    {project.tags.map((tag) => (
+      <li class="rounded-full border border-line px-3 py-1 text-xs text-muted">{tag}</li>
+    ))}
+  </ul>
+  <div class="mt-auto flex flex-wrap gap-3 pt-4">
+    {project.assets.map((asset) => (
+      <a
+        href={asset.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm font-medium text-fg underline decoration-accent decoration-2 underline-offset-4 hover:text-accent"
+      >
+        {project.assets.length > 1 ? asset.label : 'Ver PDF completo'} ↗
+      </a>
+    ))}
+  </div>
+</article>
