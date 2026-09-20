@@ -54,8 +54,7 @@ function animateReveals() {
 
 function animateHeroEntrance() {
   const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.9 } });
-  tl.fromTo('[data-hero-badge]', { opacity: 0, y: -16 }, { opacity: 1, y: 0 })
-    .fromTo('[data-hero-eyebrow]', { opacity: 0, y: 16 }, { opacity: 1, y: 0 }, '-=0.6')
+  tl.fromTo('[data-hero-eyebrow]', { opacity: 0, y: 16 }, { opacity: 1, y: 0 })
     .fromTo('[data-hero-title]', { opacity: 0, y: 24 }, { opacity: 1, y: 0 }, '-=0.6')
     .fromTo('[data-hero-sub]', { opacity: 0, y: 16 }, { opacity: 1, y: 0 }, '-=0.6')
     .fromTo('[data-hero-cta]', { opacity: 0, y: 16 }, { opacity: 1, y: 0, stagger: 0.1 }, '-=0.5')

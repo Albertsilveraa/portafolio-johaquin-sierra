@@ -14,7 +14,7 @@ export interface FichaItem {
 }
 
 export const profile = {
-  name: 'Carlos Sierra',
+  name: 'Johaquin Sierra',
   role: 'Marketing & Growth',
   location: 'Lima, Perú',
   headline: 'Construyo marcas y las hago crecer con datos.',
