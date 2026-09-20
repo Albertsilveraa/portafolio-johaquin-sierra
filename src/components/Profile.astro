@@ -1,23 +1,26 @@
 ---
 import { profile } from '../data/profile';
+import SectionHeading from './SectionHeading.astro';
 ---
 <section id="perfil" class="mx-auto max-w-5xl px-6 py-24">
-  <h2 class="font-display text-sm uppercase tracking-widest text-muted">Perfil</h2>
-  <p class="mt-6 max-w-2xl text-lg text-fg">{profile.bio}</p>
-  <dl class="mt-10 grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-2">
-    {profile.ficha.map((item) => (
-      <div>
-        <dt class="font-display text-xs uppercase tracking-widest text-muted">{item.label}</dt>
-        <dd class="mt-1 text-fg">{item.value}</dd>
-      </div>
-    ))}
-  </dl>
-  <a
-    href={profile.contentEvidence.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="mt-8 inline-block text-sm font-medium text-fg underline decoration-accent decoration-2 underline-offset-4 hover:text-accent"
-  >
-    {profile.contentEvidence.label} ↓
-  </a>
+  <SectionHeading index="03" title="Perfil" />
+  <div data-reveal>
+    <p class="mt-6 max-w-2xl text-lg text-fg">{profile.bio}</p>
+    <dl class="mt-10 grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-2">
+      {profile.ficha.map((item) => (
+        <div>
+          <dt class="font-display text-xs uppercase tracking-widest text-muted">{item.label}</dt>
+          <dd class="mt-1 text-fg">{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+    <a
+      href={profile.contentEvidence.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-block text-sm font-medium text-fg underline decoration-accent decoration-2 underline-offset-4 hover:text-accent"
+    >
+      {profile.contentEvidence.label} ↓
+    </a>
+  </div>
 </section>

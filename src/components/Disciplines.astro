@@ -1,13 +1,24 @@
 ---
 import { profile } from '../data/profile';
+import SectionHeading from './SectionHeading.astro';
 ---
 <section class="mx-auto max-w-5xl px-6 py-24">
-  <h2 class="font-display text-sm uppercase tracking-widest text-muted">Lo que hago</h2>
+  <SectionHeading index="02" title="Lo que hago" />
   <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
-    {profile.disciplines.map((discipline) => (
-      <div class="border-t border-line pt-4">
-        <h3 class="font-display text-lg font-semibold">{discipline.title}</h3>
-        <p class="mt-2 text-sm text-muted">{discipline.description}</p>
+    {profile.disciplines.map((discipline, i) => (
+      <div
+        class="relative overflow-hidden border-t border-line pt-4"
+        data-reveal
+        style={`--reveal-delay: ${i * 80}ms`}
+      >
+        <span
+          class="pointer-events-none absolute -right-2 -top-4 font-display text-7xl font-semibold text-line select-none"
+          aria-hidden="true"
+        >
+          {String(i + 1).padStart(2, '0')}
+        </span>
+        <h3 class="relative font-display text-lg font-semibold">{discipline.title}</h3>
+        <p class="relative mt-2 max-w-xs text-sm text-muted">{discipline.description}</p>
       </div>
     ))}
   </div>

@@ -3,20 +3,27 @@ import type { Project } from '../data/projects';
 
 interface Props {
   project: Project;
+  delay?: number;
 }
-const { project } = Astro.props;
+const { project, delay = 0 } = Astro.props;
 ---
-<article class="group flex flex-col gap-4 border border-line bg-surface p-6">
+<article
+  class="group flex flex-col gap-4 border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_50px_-16px_var(--color-accent)]"
+  data-reveal
+  style={`--reveal-delay: ${delay}ms`}
+>
   <div class="flex items-center justify-between font-display text-xs uppercase tracking-widest text-muted">
-    <span>{project.code}</span>
+    <span class="text-accent">{project.code}</span>
     <span>{project.year}</span>
   </div>
-  <img
-    src={project.coverImage}
-    alt={`Portada de ${project.title}`}
-    class="aspect-[4/3] w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
-    loading="lazy"
-  />
+  <div class="overflow-hidden">
+    <img
+      src={project.coverImage}
+      alt={`Portada de ${project.title}`}
+      class="aspect-[4/3] w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+      loading="lazy"
+    />
+  </div>
   <h3 class="font-display text-xl font-semibold">{project.title}</h3>
   <p class="text-sm text-muted">{project.summary}</p>
   <p class="font-display text-sm font-medium text-accent">{project.metric}</p>
