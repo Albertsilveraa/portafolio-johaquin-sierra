@@ -1,5 +1,6 @@
 ---
 import type { Project } from '../data/projects';
+import { withBase } from '../lib/url';
 
 interface Props {
   project: Project;
@@ -24,7 +25,7 @@ const modalId = `modal-${project.code.toLowerCase()}`;
     </div>
     <div class="overflow-hidden">
       <img
-        src={project.coverImage}
+        src={withBase(project.coverImage)}
         alt={`Portada de ${project.title}`}
         class="aspect-[4/3] w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
         loading="lazy"
@@ -42,7 +43,7 @@ const modalId = `modal-${project.code.toLowerCase()}`;
   <div class="mt-auto flex flex-wrap gap-3 pt-4">
     {project.assets.map((asset) => (
       <a
-        href={asset.href}
+        href={withBase(asset.href)}
         target="_blank"
         rel="noopener noreferrer"
         class="text-sm font-medium text-fg underline decoration-accent decoration-2 underline-offset-4 hover:text-accent"

@@ -1,5 +1,6 @@
 ---
 import { profile } from '../data/profile';
+import { withBase } from '../lib/url';
 import SectionHeading from './SectionHeading.astro';
 ---
 <section id="perfil" class="mx-auto max-w-5xl scroll-mt-24 px-6 py-24">
@@ -15,7 +16,7 @@ import SectionHeading from './SectionHeading.astro';
       ))}
     </dl>
     <a
-      href={profile.contentEvidence.href}
+      href={withBase(profile.contentEvidence.href)}
       target="_blank"
       rel="noopener noreferrer"
       class="mt-8 inline-block text-sm font-medium text-fg underline decoration-accent decoration-2 underline-offset-4 hover:text-accent"
