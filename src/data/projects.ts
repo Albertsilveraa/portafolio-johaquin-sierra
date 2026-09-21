@@ -57,15 +57,4 @@ export const projects: Project[] = [
       { label: 'Estrategia comercial completa', href: '/docs/estrategia-comercial-barrington.pdf' },
     ],
   },
-  {
-    code: 'PRJ-04',
-    title: 'Gringos Instalações — Pieza de reclutamiento',
-    year: '2026',
-    summary:
-      'Diseño de flyer de convocatoria laboral para una empresa de estructuras metálicas en Brasil.',
-    metric: 'Pieza de reclutamiento',
-    tags: ['Diseño gráfico', 'Reclutamiento', 'Brand piece'],
-    coverImage: '/images/prj-04-cover.png',
-    assets: [{ label: 'Flyer de convocatoria', href: '/docs/gringos-reclutamiento.pdf' }],
-  },
 ];

@@ -11,16 +11,10 @@ const expectedDocs = [
   'vintage-plan-de-negocio.pdf',
   'vintage-carta.pdf',
   'estrategia-comercial-barrington.pdf',
-  'gringos-reclutamiento.pdf',
   'marca-personal-contenido.pdf',
 ];
 
-const expectedCovers = [
-  'prj-01-cover.png',
-  'prj-02-cover.png',
-  'prj-03-cover.png',
-  'prj-04-cover.png',
-];
+const expectedCovers = ['prj-01-cover.png', 'prj-02-cover.png', 'prj-03-cover.png'];
 
 describe('portfolio assets', () => {
   it.each(expectedDocs)('public/docs/%s exists', (file) => {

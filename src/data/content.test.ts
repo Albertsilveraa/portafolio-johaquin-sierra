@@ -7,9 +7,9 @@ import { profile } from './profile';
 const publicDir = join(process.cwd(), 'public');
 
 describe('projects data', () => {
-  it('has exactly 4 projects with unique codes', () => {
-    expect(projects).toHaveLength(4);
-    expect(new Set(projects.map((p) => p.code)).size).toBe(4);
+  it('has exactly 3 projects with unique codes', () => {
+    expect(projects).toHaveLength(3);
+    expect(new Set(projects.map((p) => p.code)).size).toBe(3);
   });
 
   it.each(projects.map((p) => [p.code, p] as const))(
